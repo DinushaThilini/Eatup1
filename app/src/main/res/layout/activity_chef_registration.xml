@@ -118,7 +118,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="House/Street no"
+                    android:hint="Address"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -225,11 +225,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
                 android:text="SignIn with"
                 android:textAlignment="center"
                 android:textColor="#040404"
-                android:textSize="18sp"
-                android:gravity="center_horizontal" />
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

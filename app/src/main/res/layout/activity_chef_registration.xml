@@ -131,7 +131,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Area" />
+                    android:hint="Area"
+                    android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -263,7 +264,7 @@
                     android:background="@drawable/btnblueish"
                     android:drawableLeft="@drawable/phonewhite"
                     android:drawablePadding="5dp"
-                    android:padding="10dp"
+                    android:padding="8dp"
                     android:text="Phone"
                     android:textColor="#FFFFFF" />
             </LinearLayout>

@@ -3,6 +3,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="price_120rs">Price: 120Rs</string>
+    <string name="chicken_burger">Chicken Burger</string>
 
     <string-array name="State">
         <item>Kiribathgoda</item>

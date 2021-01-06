@@ -3,7 +3,9 @@ package com.example.eatup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -36,7 +38,7 @@ public class ChefRegistration extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
     String fname,lname,emailid,password,confpassword,mobile,house,Area,Pincode,statee,cityy;
-    String role="Customer";
+    String role="Chef";
 
 
 
@@ -58,6 +60,7 @@ public class ChefRegistration extends AppCompatActivity {
         pincode=(TextInputLayout)findViewById(R.id.Pincode);
         Statespin=(Spinner) findViewById(R.id.Statee);
         cityspin=(Spinner) findViewById(R.id.Citys);
+        area=(TextInputLayout)findViewById(R.id.Area);
 
         signup = (Button)findViewById(R.id.Signup);
         Emaill = (Button)findViewById(R.id.email);
@@ -94,8 +97,22 @@ public class ChefRegistration extends AppCompatActivity {
 
             }
         });
+        cityspin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                   @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                          Object value = parent.getItemAtPosition(position);
+                          cityy = value.toString().trim();
+                          }
 
-        databaseReference = firebaseDatabase.getInstance().getReference("Customer");
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                                  }
+
+
+                             });
+
+        databaseReference = firebaseDatabase.getInstance().getReference("Chef");
         FAuth = FirebaseAuth.getInstance();
 
         signup.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +130,7 @@ public class ChefRegistration extends AppCompatActivity {
             }
         });
 
-         if (isvalid){
+         if (isValid()){
              final ProgressDialog mDialog = new ProgressDialog(ChefRegistration.this);
              mDialog. setCancelable(false);
              mDialog.setCanceledOnTouchOutside(false);
@@ -142,6 +159,46 @@ public class ChefRegistration extends AppCompatActivity {
                                  hashMap1.put("State",statee);
                                  hashMap1.put("Confirm Password",confpassword);
                                  hashMap1.put("House",house);
+
+                                 firebaseDatabase.getInstance().getReference("Chef")
+                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                         .setValue(hashMap1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                     @Override
+                                     public void onComplete(@NonNull Task<Void> task) {
+                                         mDialog.dismiss();
+
+                                         FAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                             @Override
+                                             public void onComplete(@NonNull Task<Void> task) {
+
+                                                 if(task.isSuccessful()){
+                                                     AlertDialog.Builder builder=new AlertDialog.Builder(ChefRegistration.this);
+                                                     builder.setMessage("You Have Registered! Make Sure To Verify Your Email");
+                                                     builder.setCancelable(false);
+                                                     builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                         @Override
+                                                         public void onClick(DialogInterface dialog, int which) {
+                                                             dialog.dismiss();
+
+                                                         }
+                                                     });
+                                                     AlertDialog Alert = builder.create();
+                                                     Alert.show();
+
+
+                                                 }else {
+
+                                                     mDialog.dismiss();
+                                                     ReusableCodeForAll.ShowAlert(ChefRegistration.this,"Error",task.getException().getMessage());
+                                                 }
+
+
+                                             }
+                                         });
+
+                                     }
+                                 });
+
 
 
 
@@ -255,22 +312,12 @@ public class ChefRegistration extends AppCompatActivity {
                 isValidlocaladd = true;
             }
 
-            isValid = (isValidarea && isValidconfpassword && isValidpassword && isValidpincode && isValidemail && isValidmobilenum && isValidname && isValidlocaladd && isValidlname) ? true : false;
+            isvalid = (isValidarea && isValidconfpassword && isValidpassword && isValidpincode && isValidemail && isValidmobilenum && isValidname && isValidlocaladd && isValidlname) ? true : false;
             return isvalid;
 
-        cityspin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Object value=arent.getItemAtPosition(position);
-                cityy = value.toString().trim();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        }
 
 
-    }
+
+
 }
+        }

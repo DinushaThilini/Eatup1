@@ -32,7 +32,7 @@ public class CustomerHomeAdapter extends RecyclerView.Adapter<CustomerHomeAdapte
 
     @NonNull
     @Override
-    public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CustomerHomeAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mcontext).inflate(R.layout.customer_menudish,parent,false);
         return new CustomerHomeAdapter.viewHolder(view);
     }
@@ -41,11 +41,18 @@ public class CustomerHomeAdapter extends RecyclerView.Adapter<CustomerHomeAdapte
     public void onBindViewHolder(@NonNull CustomerHomeAdapter.viewHolder holder, int position) {
 
         final UpdateDishModel updateDishModel = updateDishModellist.get(position);
-        Glide.with
+        Glide.with(mcontext).load(updateDishModel.getImageURL()).into(holder.imageView);
+        holder.Dishname.setText(updateDishModel.getPrice());
+        updateDishModel.getRandomUID();
+        updateDishModel.getChefId();
+        holder.Price.setText("Price: "+updateDishModel.getPrice()+"Rs");
+
     }
+      
 
     @Override
     public int getItemCount() {
+
         return updateDishModellist.size() ;
     }
     public class viewHolder extends RecyclerView.ViewHolder {

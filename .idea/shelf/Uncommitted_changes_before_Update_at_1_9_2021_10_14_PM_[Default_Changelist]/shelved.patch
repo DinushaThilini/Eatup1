@@ -1,0 +1,756 @@
+Index: app/src/main/res/drawable/ic_orders_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_orders_24.xml	(date 1610174231109)
++++ app/src/main/res/drawable/ic_orders_24.xml	(date 1610174231109)
+@@ -0,0 +1,10 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24"
++    android:viewportHeight="24"
++    android:tint="?attr/colorControlNormal">
++  <path
++      android:fillColor="@android:color/white"
++      android:pathData="M19,3h-4.18C14.4,1.84 13.3,1 12,1c-1.3,0 -2.4,0.84 -2.82,2L5,3c-1.1,0 -2,0.9 -2,2v14c0,1.1 0.9,2 2,2h14c1.1,0 2,-0.9 2,-2L21,5c0,-1.1 -0.9,-2 -2,-2zM12,3c0.55,0 1,0.45 1,1s-0.45,1 -1,1 -1,-0.45 -1,-1 0.45,-1 1,-1zM14,17L7,17v-2h7v2zM17,13L7,13v-2h10v2zM17,9L7,9L7,7h10v2z"/>
++</vector>
+Index: app/src/main/res/drawable/ic_pending_orders_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_pending_orders_24.xml	(date 1610174096118)
++++ app/src/main/res/drawable/ic_pending_orders_24.xml	(date 1610174096118)
+@@ -0,0 +1,10 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24"
++    android:viewportHeight="24"
++    android:tint="?attr/colorControlNormal">
++  <path
++      android:fillColor="@android:color/white"
++      android:pathData="M11,9L9,9L9,2L7,2v7L5,9L5,2L3,2v7c0,2.12 1.66,3.84 3.75,3.97L6.75,22h2.5v-9.03C11.34,12.84 13,11.12 13,9L13,2h-2v7zM16,6v8h2.5v8L21,22L21,2c-2.76,0 -5,2.24 -5,4z"/>
++</vector>
+Index: app/src/main/res/drawable/ic_post_menu_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_post_menu_24.xml	(date 1610174335681)
++++ app/src/main/res/drawable/ic_post_menu_24.xml	(date 1610174335681)
+@@ -0,0 +1,10 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24"
++    android:viewportHeight="24"
++    android:tint="?attr/colorControlNormal">
++  <path
++      android:fillColor="@android:color/white"
++      android:pathData="M8.1,13.34l2.83,-2.83L3.91,3.5c-1.56,1.56 -1.56,4.09 0,5.66l4.19,4.18zM14.88,11.53c1.53,0.71 3.68,0.21 5.27,-1.38 1.91,-1.91 2.28,-4.65 0.81,-6.12 -1.46,-1.46 -4.2,-1.1 -6.12,0.81 -1.59,1.59 -2.09,3.74 -1.38,5.27L3.7,19.87l1.41,1.41L12,14.41l6.88,6.88 1.41,-1.41L13.41,13l1.47,-1.47z"/>
++</vector>
+Index: app/src/main/java/com/example/eatup/customerFoodPanel/ChefOrderFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/eatup/customerFoodPanel/ChefOrderFragment.java	(date 1610194102269)
++++ app/src/main/java/com/example/eatup/customerFoodPanel/ChefOrderFragment.java	(date 1610194102269)
+@@ -0,0 +1,23 @@
++package com.example.eatup.customerFoodPanel;
++
++import android.os.Bundle;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++import androidx.annotation.NonNull;
++import androidx.annotation.Nullable;
++import androidx.fragment.app.Fragment;
++
++import com.example.eatup.customerFoodPanel;
++
++public class ChefOrderFragment extends Fragment {
++
++    @Nullable
++    @Override
++    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
++
++        View v = inflater.inflate(R.layout.fragment_chef_orders,null);
++        getActivity().setTitle("New Orders");
++        return v;
++    }
+\ No newline at end of file
+Index: app/src/main/java/com/example/eatup/customerFoodPanel/ChefHomeFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/eatup/customerFoodPanel/ChefHomeFragment.java	(date 1610200185240)
++++ app/src/main/java/com/example/eatup/customerFoodPanel/ChefHomeFragment.java	(date 1610200185240)
+@@ -0,0 +1,55 @@
++package com.example.eatup.customerFoodPanel;
++import android.content.Intent;
++import android.os.Bundle;
++import android.view.LayoutInflater;
++import android.view.Menu;
++import android.view.MenuInflater;
++import android.view.MenuItem;
++import android.view.View;
++import android.view.ViewGroup;
++
++import androidx.annotation.NonNull;
++import androidx.annotation.Nullable;
++import androidx.fragment.app.Fragment;
++
++import com.google.firebase.auth.FirebaseAuth;
++
++import my.foodOn.app.MainMenu;
++import my.foodOn.app.R;
++
++public class ChefHomeFragment extends Fragment {
++
++    @Nullable
++    @Override
++    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
++
++        View v = inflater.inflate(R.layout.fragment_chef_home,null);
++        getActivity().setTitle("Home");
++        setHasOptionsMenu(true);
++        return v;
++    }
++
++    @Override
++    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
++        inflater.inflate(R.menu.logout,menu);
++    }
++
++    @Override
++    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
++
++        int idd = item.getItemId();
++        if(idd == R.id.LOGOUT){
++            Logout();
++            return true;
++        }
++        return super.onOptionsItemSelected(item);
++    }
++
++    private void Logout() {
++
++        FirebaseAuth.getInstance().signOut();
++        Intent intent = new Intent(getActivity(), MainMenu.class);
++        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
++        startActivity(intent);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/menu/chef_botom_nevigation.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/menu/chef_botom_nevigation.xml	(date 1610196969451)
++++ app/src/main/res/menu/chef_botom_nevigation.xml	(date 1610196969451)
+@@ -0,0 +1,28 @@
++<?xml version="1.0" encoding="utf-8"?>
++<menu xmlns:android="http://schemas.android.com/apk/res/android">
++
++
++    <item
++        android:id="@+id/chefHome"
++        android:icon="@drawable/ic_baseline_home_24"
++        android:title="Home" />
++
++
++    <item
++        android:id="@+id/PendingOrders"
++        android:icon="@drawable/ic_pending_orders_24"
++        android:title="Pending Orders" />
++
++
++    <item
++        android:id="@+id/Orders"
++        android:icon="@drawable/ic_orders_24"
++        android:title="Orders" />
++
++
++    <item
++        android:id="@+id/chefProfile"
++        android:icon="@drawable/ic_post_menu_24"
++        android:title="Post Dish" />
++
++</menu>
+\ No newline at end of file
+Index: app/src/main/res/menu/logout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/menu/logout.xml	(date 1610176498234)
++++ app/src/main/res/menu/logout.xml	(date 1610176498234)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="utf-8"?>
++<menu xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app = "http://schemas.android.com/apk/res-auto">
++
++    <item
++        android:id="@+id/LOGOUT"
++        android:title="Logout"
++        android:visible="true"
++        app:showAsAction="never"/>
++
++</menu>
+\ No newline at end of file
+Index: app/src/main/java/com/example/eatup/customerFoodPanel/ChefPendingOrderFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/eatup/customerFoodPanel/ChefPendingOrderFragment.java	(date 1610194178541)
++++ app/src/main/java/com/example/eatup/customerFoodPanel/ChefPendingOrderFragment.java	(date 1610194178541)
+@@ -0,0 +1,23 @@
++package com.example.eatup.customerFoodPanel;
++
++import android.os.Bundle;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++import androidx.annotation.NonNull;
++import androidx.annotation.Nullable;
++import androidx.fragment.app.Fragment;
++
++import my.foodOn.app.R;
++
++public class ChefPendingOrderFragment extends Fragment {
++
++    @Nullable
++    @Override
++    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
++        View v = inflater.inflate(R.layout.fragment_chef_pendingorders,null);
++        getActivity().setTitle("Pending Orders");
++        return v;
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/eatup/customerFoodPanel/ChefProfileFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/eatup/customerFoodPanel/ChefProfileFragment.java	(date 1610200767653)
++++ app/src/main/java/com/example/eatup/customerFoodPanel/ChefProfileFragment.java	(date 1610200767653)
+@@ -0,0 +1,64 @@
++package com.example.eatup.customerFoodPanel;
++
++import android.content.Intent;
++import android.graphics.drawable.AnimationDrawable;
++import android.os.Bundle;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.Button;
++
++import androidx.annotation.NonNull;
++import androidx.annotation.Nullable;
++import androidx.constraintlayout.widget.ConstraintLayout;
++import androidx.fragment.app.Fragment;
++
++import my.foodOn.app.R;
++
++public class ChefProfileFragment extends Fragment {
++
++    Button postDish;
++    ConstraintLayout backimg;
++
++
++    @Nullable
++    @Override
++    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
++        View v = inflater.inflate(R.layout.fragment_chef_prifile,null);
++        getActivity().setTitle("Post Dish");
++
++        AnimationDrawable animationDrawable = new AnimationDrawable();
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.bg2),3000);
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.img2),3000);
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.img3),3000);
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.img4),3000);
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.img5),3000);
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.img6),3000);
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.img7),3000);
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.img8),3000);
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.bg3),3000);
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.img9),3000);
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.img10),3000);
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.img11),3000);
++        animationDrawable.addFrame(getResources().getDrawable(R.drawable.img11),3000);
++
++        animationDrawable.setOneShot(false);
++        animationDrawable.setEnterFadeDuration(850);
++        animationDrawable.setExitFadeDuration(1600);
++
++        backimg = v.findViewById(R.id.back1);
++        backimg.setBackgroundDrawable(animationDrawable);
++        animationDrawable.start();
++
++        postDish =  (Button)v.findViewById(R.id.post_dish);
++
++        postDish.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                startActivity(new Intent(getContext(),chef_post_Dish.class));
++            }
++        });
++
++        return v;
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/eatup/ChefFoodPanel_BottomNavigation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.eatup;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.MenuItem;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.fragment.app.Fragment;\r\n\r\nimport com.google.android.material.bottomnavigation.BottomNavigationView;\r\n\r\npublic class ChefFoodPanel_BottomNavigation extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_chef_food_panel__bottom_navigation);\r\n        BottomNavigationView navigationView = findViewById(R.id.chef_bottom_navigation);\r\n        navigationView.setOnNavigationItemSelectedListener(this);\r\n\r\n    }\r\n\r\n    @Override\r\n    public boolean onNavigationItemSelected(@NonNull MenuItem item) {\r\n        Fragment fragment = null;\r\n        switch (item.getItemId()) {\r\n            case R.id.chefHome:\r\n                fragment=new ChefHomeFragment();\r\n                break;\r\n            case R.id.PendingOrders:\r\n                fragment=new ChefPendingOrdersFragment();\r\n                break;\r\n            case R.id.Orders:\r\n                fragment=new ChefOrdersFragment();\r\n                break;\r\n            case R.id.chefProfile:\r\n                fragment=new ChefProfileFragment();\r\n                break;\r\n        }\r\n        return loadcheffragment(fragment);\r\n    }\r\n    private boolean loadcheffragment(Fragment fragment){\r\n\r\n        if (fragment  !=null){\r\n            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,fragment).commit();\r\n            return true;\r\n\r\n\r\n        }\r\n        return false;\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/eatup/ChefFoodPanel_BottomNavigation.java	(revision 1b60e4a55fc4f62a101f9492e42076d4d6ffe28f)
++++ app/src/main/java/com/example/eatup/ChefFoodPanel_BottomNavigation.java	(date 1610196579465)
+@@ -7,9 +7,13 @@
+ import androidx.appcompat.app.AppCompatActivity;
+ import androidx.fragment.app.Fragment;
+ 
++import com.example.eatup.customerFoodPanel.ChefHomeFragment;
++import com.example.eatup.customerFoodPanel.ChefOrderFragment;
++import com.example.eatup.customerFoodPanel.ChefPendingOrderFragment;
++import com.example.eatup.customerFoodPanel.ChefProfileFragment;
+ import com.google.android.material.bottomnavigation.BottomNavigationView;
+ 
+-public class ChefFoodPanel_BottomNavigation extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
++public class ChefFoodPanel_BottomNavigation extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+@@ -17,21 +21,20 @@
+         setContentView(R.layout.activity_chef_food_panel__bottom_navigation);
+         BottomNavigationView navigationView = findViewById(R.id.chef_bottom_navigation);
+         navigationView.setOnNavigationItemSelectedListener(this);
+-
+     }
+ 
+     @Override
+     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+         Fragment fragment = null;
+-        switch (item.getItemId()) {
++        switch (item.getItemId()){
+             case R.id.chefHome:
+                 fragment=new ChefHomeFragment();
+                 break;
+             case R.id.PendingOrders:
+-                fragment=new ChefPendingOrdersFragment();
++                fragment=new ChefPendingOrderFragment();
+                 break;
+             case R.id.Orders:
+-                fragment=new ChefOrdersFragment();
++                fragment=new ChefOrderFragment();
+                 break;
+             case R.id.chefProfile:
+                 fragment=new ChefProfileFragment();
+@@ -39,13 +42,12 @@
+         }
+         return loadcheffragment(fragment);
+     }
+-    private boolean loadcheffragment(Fragment fragment){
++
++    private boolean loadcheffragment(Fragment fragment) {
+ 
+-        if (fragment  !=null){
++        if (fragment != null){
+             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,fragment).commit();
+             return true;
+-
+-
+         }
+         return false;
+     }
+Index: app/src/main/res/layout/fragment_chef_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_chef_home.xml	(date 1610200353915)
++++ app/src/main/res/layout/fragment_chef_home.xml	(date 1610200353915)
+@@ -0,0 +1,23 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    xmlns:tools="http://schemas.android.com/tools"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:orientation="vertical"
++    tools:menu="@menu/logout">
++
++    <Button
++        android:id="@+id/post_dish"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginBottom="20dp"
++        android:background="@drawable/btnred"
++        android:shadowColor="@color/Black"
++        android:shadowRadius="10"
++        android:text="Post Dish"
++        android:textColor="@color/white"
++        android:textSize="24sp"
++        app:layout_constraintBottom_toBottomOf="parent" />
++
++</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/color/menu_item_color.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/color/menu_item_color.xml	(date 1610199527849)
++++ app/src/main/res/color/menu_item_color.xml	(date 1610199527849)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++
++    <item android:color="@color/Red" android:state_checked="true"/>
++    <item android:color="@color/defaultColor"/>
++
++</selector>
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_chef_order.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_chef_order.xml	(date 1610184422004)
++++ app/src/main/res/layout/fragment_chef_order.xml	(date 1610184422004)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++
++</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_chef_prifile.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_chef_prifile.xml	(date 1610184563638)
++++ app/src/main/res/layout/fragment_chef_prifile.xml	(date 1610184563638)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="fill_parent"
++    android:layout_height="fill_parent"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/back1">
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/eatup/customerFoodPanel/chef_post_dish.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/eatup/customerFoodPanel/chef_post_dish.java	(date 1610200855775)
++++ app/src/main/java/com/example/eatup/customerFoodPanel/chef_post_dish.java	(date 1610200855775)
+@@ -0,0 +1,14 @@
++ package com.example.eatup.customerFoodPanel;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class chef_post_dish extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_chef_post_dish);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_chef_post_dish.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_chef_post_dish.xml	(date 1610210400413)
++++ app/src/main/res/layout/activity_chef_post_dish.xml	(date 1610210400413)
+@@ -0,0 +1,126 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".customerFoodPanel.chef_post_dish">
++
++    <ImageButton
++        android:id="@+id/image_upload"
++        android:background="@drawable/camerashapebtn"
++        android:layout_width="120dp"
++        android:layout_height="120dp"
++        android:layout_marginTop="64dp"
++        android:src="@drawable/ic_camera_24"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintHorizontal_bias="0.498"
++        app:layout_constraintVertical_bias="0.363"/>
++
++    <LinearLayout
++        android:layout_width="280dp"
++        android:layout_height="wrap_content"
++        android:id="@+id/linear_layout"
++        android:orientation="horizontal"
++        app:layout_constraintBottom_tobottomOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintBottom_toBottomOf="@id/image_upload"
++        app:layout_constraintVertical_bias="0.15">
++        app:layout_constraintHorizontal_bias="0.53"
++
++        <textview
++            android:layout_width="105dp"
++            android:layout_height="30dp"
++            android:id="@+id/textView"
++            android:text="dish name"
++            android:textcolor="@color/black"
++            android:layout_marginleft="5dp"
++            android:testSize="18sp"/>
++
++
++
++
++    <androidx.appcompat.widget.AppCompatSpinner
++        android:id="@+id/dishes"
++        android:layout_width="260dp"
++        android:layout_height="30dp"
++        android:entries="@array/DishName"
++        tools:layout_editor_absoluteX="75dp"
++        tools:layout_editor_absoluteY="0dp" />
++</LinearLayout>
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:layout_width="280dp"
++        android:layout_height="wrap_content"
++        android:id="@+id/description"
++        android:textColorHint="@color/Black"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintTop_toBottomOf="@id/description"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintVertical_bias="0.057"
++        app:layout_constraintHorizontal_bias="0.53">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:hint="discription"
++            android:inputtype="text"/>
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:layout_width="280dp"
++        android:layout_height="wrap_content"
++        android:id="@+id/quantity"
++        android:textColorHint="@color/Black"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintTop_toBottomOf="@id/description"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintVertical_bias="0.053"
++        app:layout_constraintHorizontal_bias="0.53"
++        >
++
++    <com.google.android.material.textfield.TextInputEditText
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:hint="quantity"
++        android:inputtype="text"/>
++
++    <com.google.android.material.textfield.TextInputLayout
++        android:layout_width="280dp"
++        android:layout_height="wrap_content"
++        android:id="@+id/price"
++        android:textColorHint="@color/Black"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintTop_toBottomOf="@id/description"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintVertical_bias="0.053"
++        app:layout_constraintHorizontal_bias="0.53"
++        >
++
++    <com.google.android.material.textfield.TextInputEditText
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:hint="price"
++        android:inputtype="text"/>
++
++    <com.google.android.material.button.MaterialButton
++        android:layout_width="240dp"
++        android:layout_height="wrap_content"
++        android:id="@+id/post"
++        android:background="@drawable/btnred"
++        app:layout_constraintBottom_toBottomOf="@+id/price"
++        android:text="post"
++        android:textColor="@color/white"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="parent"
++        app:layout_constraintVertical_bias="0.30"
++        app:layout_constraintHorizontal_bias="0.498"
++
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_chef_pendingorders.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_chef_pendingorders.xml	(date 1610184512471)
++++ app/src/main/res/layout/fragment_chef_pendingorders.xml	(date 1610184512471)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++
++    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:id="@+id/Swipe_layoutt">
++
++    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
++
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_chef_food_panel__bottom_navigation.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".ChefFoodPanel_BottomNavigation\">\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_chef_food_panel__bottom_navigation.xml	(revision 1b60e4a55fc4f62a101f9492e42076d4d6ffe28f)
++++ app/src/main/res/layout/activity_chef_food_panel__bottom_navigation.xml	(date 1610199728509)
+@@ -1,9 +1,24 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     tools:context=".ChefFoodPanel_BottomNavigation">
++    <FrameLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:id="@+id/frame_container"
++        android:="layout_above@id/chef_bottom_navigation"/>
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++    <com.google.android.material.bottomnavigation.BottomNavigationView
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:id="@+id/chef_bottom_navigation"
++        android:layout_alignParentBottom="true"
++        android:background="?android:attr/windowBackground"
++        android:backgroundTint="@color/white"
++        app:itemTextColor="@color/menu_item_color"
++        app:itemIconTint="@color/menu_item_color"
++        app:menu="@menu/chef_botom_nevigation"/>
++</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/drawable/camerashapebtn.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/camerashapebtn.xml	(date 1610201243836)
++++ app/src/main/res/drawable/camerashapebtn.xml	(date 1610201243836)
+@@ -0,0 +1,10 @@
++
++<?xml version="1.0" encoding="utf-8"?>
++<shape xmlns:android="http://schemas.android.com/apk/res/android">
++
++    <corners android:radius="10dp"/>
++    <stroke android:color="@color/Red"
++        android:width="1.5dp"/>
++    <solid android:color="@color/white"
++
++</shape>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_camera_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_camera_24.xml	(date 1610201127075)
++++ app/src/main/res/drawable/ic_camera_24.xml	(date 1610201127075)
+@@ -0,0 +1,13 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24"
++    android:viewportHeight="24"
++    android:tint="?attr/colorControlNormal">
++  <path
++      android:fillColor="@android:color/white"
++      android:pathData="M12,12m-3.2,0a3.2,3.2 0,1 1,6.4 0a3.2,3.2 0,1 1,-6.4 0"/>
++  <path
++      android:fillColor="@android:color/white"
++      android:pathData="M9,2L7.17,4L4,4c-1.1,0 -2,0.9 -2,2v12c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2L22,6c0,-1.1 -0.9,-2 -2,-2h-3.17L15,2L9,2zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5z"/>
++</vector>
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.example.eatup\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"Eatup\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\">\r\n        <activity android:name=\".ChefFoodPanel_BottomNavigation\"></activity>\r\n        <activity android:name=\".Delivery_Registration\" />\r\n        <activity android:name=\".Delivery_Loginphone\" />\r\n        <activity android:name=\".Delivery_Login\" />\r\n        <activity android:name=\".Registration\" />\r\n        <activity android:name=\".Loginphone\" />\r\n        <activity android:name=\".Login\" />\r\n        <activity android:name=\".ChefRegistration\" />\r\n        <activity android:name=\".Chefloginphone\" />\r\n        <activity android:name=\".Cheflogin\" />\r\n        <activity android:name=\".ChooseOne\" />\r\n        <activity android:name=\".MainMenu\" />\r\n        <activity android:name=\".MainActivity\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision 1b60e4a55fc4f62a101f9492e42076d4d6ffe28f)
++++ app/src/main/AndroidManifest.xml	(date 1610200766400)
+@@ -9,7 +9,8 @@
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme">
+-        <activity android:name=".ChefFoodPanel_BottomNavigation"></activity>
++        <activity android:name=".customerFoodPanel.chef_post_dish"></activity>
++        <activity android:name=".ChefFoodPanel_BottomNavigation" />
+         <activity android:name=".Delivery_Registration" />
+         <activity android:name=".Delivery_Loginphone" />
+         <activity android:name=".Delivery_Login" />
+Index: app/src/main/res/drawable/ic_baseline_home_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_baseline_home_24.xml	(date 1610173985962)
++++ app/src/main/res/drawable/ic_baseline_home_24.xml	(date 1610173985962)
+@@ -0,0 +1,10 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24"
++    android:viewportHeight="24"
++    android:tint="?attr/colorControlNormal">
++  <path
++      android:fillColor="@android:color/white"
++      android:pathData="M10,20v-6h4v6h5v-8h3L12,3 2,12h3v8z"/>
++</vector>

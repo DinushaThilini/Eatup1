@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChefVerifyphone"></activity>
-        <activity android:name=".Delivery_Registration" />
+ <<<< android:HEAD
+        <activity android:name=".ChefFoodPanel_BottomNavigation"></activity>
+  <<<<origin/master
+        <activity android:name=".Delivery_Registration"></activity>
         <activity android:name=".Delivery_Loginphone" />
         <activity android:name=".Delivery_Login" />
         <activity android:name=".Registration" />

@@ -23,5 +23,6 @@
         <item>Paratha Wraps</item>
 
     </string-array>
+    <string name="title_activity_app">app</string>
 
 </resources>

@@ -9,15 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import my.foodOn.app.R;
-
-public class ChefPendingOrderFragment extends Fragment {
+public class CustomerCartFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_chef_pendingorders,null);
-        getActivity().setTitle("Pending Orders");
+        View v = inflater.inflate(R.layout.fragment_customercart, root:null);
+        getActivity().setTitle("Cart");
         return v;
     }
 }

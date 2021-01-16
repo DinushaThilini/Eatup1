@@ -33,7 +33,7 @@ public class CustomerHomeFragment extends Fragment implements SwipeRefreshLayout
     private CustomerHomeAdapter adapter;
     String State,City,Area;
     DatabaseReference dataa,databaseReference;
-    SwipeRefreshLayout swipeRefreshLayout();
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Nullable
     @Override

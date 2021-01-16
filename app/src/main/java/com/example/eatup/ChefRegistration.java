@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -53,7 +55,7 @@ public class ChefRegistration extends AppCompatActivity {
         Fname=(TextInputLayout)findViewById(R.id.Firstname);
         Lname=(TextInputLayout)findViewById(R.id.Lastname);
         Email=(TextInputLayout)findViewById(R.id.Email);
-        Pass=(TextInputLayout)findViewById(R.id.password);
+        Pass=(TextInputLayout)findViewById(R.id.Pwd);
         cpass=(TextInputLayout)findViewById(R.id.Cpass);
         mobileno=(TextInputLayout)findViewById(R.id.mobileno);
         houseno=(TextInputLayout)findViewById(R.id.houseNo);
@@ -61,7 +63,7 @@ public class ChefRegistration extends AppCompatActivity {
         pincode=(TextInputLayout)findViewById(R.id.Pincode);
         Statespin=(Spinner) findViewById(R.id.Statee);
         cityspin=(Spinner) findViewById(R.id.Citys);
-        area=(TextInputLayout)findViewById(R.id.Area);
+
 
         signup = (Button)findViewById(R.id.Signup);
         Emaill = (Button)findViewById(R.id.email);
@@ -195,9 +197,9 @@ public class ChefRegistration extends AppCompatActivity {
                                                  }else {
 
                                                      mDialog.dismiss();
-                                                     ReusableCodeForAll.ShowAlert(ChefRegistration.this,"Error",task.getException().getMessage());
-                                                 }
+                                                     ReusableCodeForAll.ShowAlert(ChefRegistration.this, "Error", task.getException().getMessage());
 
+                                                 }
 
                                              }
                                          });
@@ -205,7 +207,21 @@ public class ChefRegistration extends AppCompatActivity {
                                      }
                                  });
 
+                               Emaill.setOnClickListener(new View.OnClickListener() {
+                                         @Override
+                                         public void onClick(View v) {
 
+                                             startActivity(new Intent(ChefRegistration.this,Cheflogin.class));
+                                             finish();
+                                         }
+                                     });
+        phone.setOnClickListener(new View.OnClickListener() {
+                                         @Override
+                                         public void onClick(View v) {
+                                             startActivity(new Intent(ChefRegistration.this,Chefloginphone.class));
+                                             finish();
+                                         }
+                                     });
 
 
                              }

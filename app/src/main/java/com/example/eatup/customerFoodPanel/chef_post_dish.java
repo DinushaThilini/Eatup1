@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.eatup.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,11 +51,11 @@ import java.util.UUID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout.activity_chef_post_dish);
+        setContentView(R.layout.activity_chef_post_dish);
 
         storage=FirebaseStorage.getInstance();
         storageReference= storage.getReference();
-        Dishes=(Spinner) findViewById(R.Id.dishes);
+        Dishes=(Spinner) findViewById(R.id.dishes);
         desc =(TextInputLayout)findViewById(R.id.description);
         qty=(TextInputLayout)findViewById(R.id.description);
         pri = (TextInputLayout) findViewById(R.id.price);
@@ -72,9 +73,9 @@ import java.util.UUID;
                     chef  cheff=snapshot.getValue(cheff.class);
                     State =cheff.getState();
                     Area=cheff.getArea();
-                    imageButton =(ImageButton) findViewById(R.id.image_upload);
+                    ImageButton =(ImageButton) findViewById(R.id.image_upload);
 
-                    imageButton.setOnClickListener(new View.onClickListener(){
+                    ImageButton.setOnClickListener(new View.onClickListener(){
                         @Override
                         public void onClick(view v ){
                             onSelectImageclick(v);
@@ -177,7 +178,7 @@ import java.util.UUID;
         }
         if(TextUtils.isEmpty(quantity)){
             qty.setErrorEnabled(true);
-            qty.setError("Enter number of Plates or Items);
+            qty.setError("Enter number of Plates or Items");
         }else{
             isValidQuantity=true;
         }
@@ -190,7 +191,7 @@ import java.util.UUID;
         isValid=(isValidDescription && isValidQuantity && isValidPrice)?true:false;
         return isValid;
 
-     }}
+     }
      private void startCropImageActivity(Uri imageuri){
      Cropimage.activity(imageuri)
              .setGuidelines(CropImageView.Guidelines.ON)

@@ -15,8 +15,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.eatup.MainMenu;
+import com.example.eatup.R;
 import com.example.eatup.UpdateDishModel;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,22 +42,57 @@ public class ChefHomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View v = inflater.inflate(R.layout.fragment_chef_home,null);
+        View V =inflater.inflate(R.layout.fragment_chef_home,null);
         getActivity().setTitle("Home");
         setHasOptionsMenu(true);
-        recyclerView = v.findViewById(R.id.Recycle_menu);
+        recyclerView=V.findViewById(R.id.recycle_menu);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         updateDishModelList = new ArrayList<>();
-        String userid = FirbaseAuth.getInstance().getCurrentUser().getUid();
-        dataa = FirebaseDatabase.getInstance().getReference(path:"chef").child(userid);
-        dataa.addListenerForSigleValueEvent()
+        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        dataa = FirebaseDatabase.getInstance().getReference("Chef").child(userid);
+        dataa.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                chef cheff = snapshot.getValue(chef.class);
+                State = cheff.getState();
+                City = cheff.getCity();
+                Area = cheff.getArea();
+                chefDishes();
 
 
+            }
 
-        return v;
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        return V;
     }
+
+    private void chefDishes() {
+        String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("FoodDetails").child(State).child(City).child(Area).child(useridd);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                updateDishModelList.clear();
+                for(DataSnapshot snapshot1:snapshot.getChildren()){
+                    UpdateDishModel updateDishModel = snapshot1.getValue(UpdateDishModel.class);
+                    updateDishModelList.add(updateDishModel);
+                }
+                adapter = new ChefHomeAdapter(getContext(),updateDishModelList);
+                recyclerView.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+     }
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {

@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 
 import java.util.List;
 
+
+
 public class CustomerHomeAdapter extends RecyclerView.Adapter<CustomerHomeAdapter.viewHolder> {
 
     private Context mcontext;

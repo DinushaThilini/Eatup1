@@ -1,6 +1,7 @@
 package com.example.eatup.customerFoodPanel;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,13 +42,21 @@ public class ChefHomeAdapter extends RecyclerView.Adapter<ChefHomeAdapter.ViewHo
         final UpdateDishModel updateDishModel = updateDishModelList.get(position);
         holder.dishes.setText(updateDishModel.getDishes());
         updateDishModel.getRandomUID();
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mcout,UpdateDelete_Dish.class);
+                intent.putExtra("updatedeletedish",updateDishModel.getRandomUID());
+                mcout.startActivity(intent);
 
-
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
+
         return updateDishModelList.size();
     }
 

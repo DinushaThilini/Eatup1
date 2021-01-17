@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".customerFoodPanel.chef_post_dish">
+    tools:context=".customerFoodPanel.chef_post_dish"
+    android:background="@drawable/whatsapp_image_2020_10_19_at_11_39_01">
 
     <ImageButton
         android:id="@+id/image_upload"
@@ -40,87 +41,101 @@
             android:layout_marginleft="5dp"
             android:testSize="18sp"/>
 
+        <Spinner
+            android:id="@+id/dishes"
+            android:layout_width="162dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="12dp"
+            android:background="#D0FFFFFF"
+            android:entries="@array/DishName" />
 
-
-
-    <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/dishes"
-        android:layout_width="260dp"
-        android:layout_height="30dp"
-        android:entries="@array/DishName"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="0dp" />
-</LinearLayout>
+    </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:id="@+id/description"
-        android:textColorHint="@color/Black"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description"
+        app:layout_constraintTop_toBottomOf="@+id/linear_layout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.057"
+        app:layout_constraintVertical_bias="0.053"
         app:layout_constraintHorizontal_bias="0.53">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="discription"
-            android:inputtype="text"/>
+            android:hint="Description"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:id="@+id/quantity"
-        android:textColorHint="@color/Black"
+        android:id="@+id/Quantity"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description"
+        app:layout_constraintTop_toBottomOf="@+id/description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.053"
-        app:layout_constraintHorizontal_bias="0.53"
-        >
+        app:layout_constraintHorizontal_bias="0.53">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="quantity"
-        android:inputtype="text"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quantity"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:id="@+id/price"
-        android:textColorHint="@color/Black"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description"
+        app:layout_constraintTop_toBottomOf="@+id/Quantity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.053"
-        app:layout_constraintHorizontal_bias="0.53"
-        >
+        app:layout_constraintHorizontal_bias="0.53">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="price"
-        android:inputtype="text"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
 
-    <com.google.android.material.button.MaterialButton
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:id="@+id/post"
         android:background="@drawable/btnred"
-        app:layout_constraintBottom_toBottomOf="@+id/price"
-        android:text="post"
+        app:layout_constraintTop_toBottomOf="@id/price"
+        android:text="Post"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.30"
         app:layout_constraintHorizontal_bias="0.498"
+        android:textSize="20sp"/>
+
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

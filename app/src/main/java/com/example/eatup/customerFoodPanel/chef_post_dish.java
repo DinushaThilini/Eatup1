@@ -75,12 +75,12 @@ import java.util.UUID;
                     Area=cheff.getArea();
                     ImageButton =(ImageButton) findViewById(R.id.image_upload);
 
-                    ImageButton.setOnClickListener(new View.onClickListener(){
+                    ImageButton.setOn(new View.onClickListener(){
                         @Override
                         public void onClick(view v ){
                             onSelectImageclick(v);
                         }
-                    })
+                    });
                     post_dish.setOnClickListener(new View.OnClickListener())
                 }
 

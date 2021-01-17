@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    back>
-
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:title="Home"
@@ -9,7 +7,7 @@
         android:icon="@drawable/ic_baseline_home_24"/>
     <item
         android:title="Cart"
-        android:id="@+id/home"
+        android:id="@+id/cust_Cart"
         android:icon="@drawable/ic_baseline_shopping_cart_24"/>
     <item
         android:title="Orders"
@@ -17,7 +15,7 @@
         android:icon="@drawable/ic_orders_24"/>
     <item
         android:title="Track"
-        android:id="@+id/track"
+        android:id="@+id/cust_track"
         android:icon="@drawable/ic_baseline_schedule_time_24"/>
     <item
         android:title="Profile"

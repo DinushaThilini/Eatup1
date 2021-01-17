@@ -1,4 +1,4 @@
-package com.example.eatup.customerFoodPanel;
+package com.example.eatup.chefFoodPanel;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.eatup.customerFoodPanel;
+import com.example.eatup.R;
+
 
 public class ChefOrderFragment extends Fragment {
 
@@ -17,7 +18,8 @@ public class ChefOrderFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_chef_orders,null);
+        View v = inflater.inflate(R.layout.fragment_chef_order, null);
         getActivity().setTitle("New Orders");
         return v;
     }
+}

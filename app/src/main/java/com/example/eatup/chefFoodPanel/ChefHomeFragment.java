@@ -1,7 +1,6 @@
-package com.example.eatup.customerFoodPanel;
+package com.example.eatup.chefFoodPanel;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.eatup.MainMenu;
 import com.example.eatup.R;
 import com.example.eatup.UpdateDishModel;
+import com.example.eatup.chefFoodPanel.ChefHomeAdapter;
+import com.example.eatup.customerFoodPanel.chef;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,8 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import my.foodOn.app.MainMenu;
-import my.foodOn.app.R;
+
 
 public class ChefHomeFragment extends Fragment {
 

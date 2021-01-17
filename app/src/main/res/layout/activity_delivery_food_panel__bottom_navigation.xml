@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DeliveryFoodPanel_BottomNavigation">
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/delivery.bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/delivary_bottom_navigation_file"
+        android:backgroundTint="@color/white"
+        android:background="?android:attr/windowBackground"
+        app:itemTextColor="@color/menu_item_color"
+        app:itemIconTint="@color/menu_item_color"/>
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <item
+            android:id="@+id/pendingorders"
+            android:icon="@drawable/ic_orders_24"
+            android:title="Pending Orders" />
+        <item
+            android:id="@+id/shiporders"
+            android:icon="@drawable/ic_baseline_local_shipping_24"
+            android:title="Ship Orders" />
+    </menu>
+
+</RelativeLayout>
+

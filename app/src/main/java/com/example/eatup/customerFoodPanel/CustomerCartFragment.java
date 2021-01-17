@@ -9,12 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.eatup.R;
+
 public class CustomerCartFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_customercart, root:null);
+        View v = inflater.inflate(R.layout.fragment_customercart,null );
         getActivity().setTitle("Cart");
         return v;
     }

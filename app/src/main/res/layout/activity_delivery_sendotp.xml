@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img6"
-    tools:context=".Chefsendotp">
-
+    tools:context=".Delivery_sendotp">
 
     <LinearLayout
         android:layout_width="280dp"
@@ -37,13 +36,13 @@
             android:layout_marginTop="15dp"
             android:hint="OTP"
             android:ems="10"
-            android:id="@+id/code"/>
+            android:id="@+id/code1"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:id="@+id/Verify"
+            android:id="@+id/Verify1"
             android:background="@drawable/btnblueish"
             android:text="Verify"
             android:textSize="18sp"
@@ -52,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:id="@+id/Resendotp"
+            android:id="@+id/Resendotp1"
             android:textColor="@color/white"
             android:text="Resend OTP"
             android:background="@drawable/btnred"
@@ -60,7 +59,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/text"
+            android:id="@+id/text1"
             android:layout_gravity="center_horizontal"
             android:text=""
             android:layout_marginTop="15dp"

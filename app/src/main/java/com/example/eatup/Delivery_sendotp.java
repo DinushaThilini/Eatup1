@@ -23,7 +23,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class Delivery_Verifyphone extends AppCompatActivity {
+public class Delivery_sendotp extends AppCompatActivity {
     String verificationId;
     FirebaseAuth FAuth;
     Button verify , Resend ;
@@ -31,18 +31,17 @@ public class Delivery_Verifyphone extends AppCompatActivity {
     EditText entercode;
     String phoneno;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delivery__verifyphone);
+        setContentView(R.layout.activity_delivery_sendotp);
 
-        phoneno = getIntent().getStringExtra("phonenumber").trim();
+        phoneno = getIntent().getStringExtra("Phonenum").trim();
 
-        entercode = (EditText) findViewById(R.id.Dcode);
-        txt = (TextView) findViewById(R.id.textt);
-        Resend = (Button)findViewById(R.id.Resendcode);
-        verify = (Button) findViewById(R.id.Verifycode);
+        entercode = (EditText) findViewById(R.id.code1);
+        txt = (TextView) findViewById(R.id.text1);
+        Resend = (Button)findViewById(R.id.Resendotp1);
+        verify = (Button) findViewById(R.id.Verify1);
         FAuth = FirebaseAuth.getInstance();
 
         Resend.setVisibility(View.INVISIBLE);
@@ -65,6 +64,7 @@ public class Delivery_Verifyphone extends AppCompatActivity {
                 verifyCode(code);
             }
         });
+
         new CountDownTimer(60000,1000){
 
             @Override
@@ -96,7 +96,7 @@ public class Delivery_Verifyphone extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
 
                         txt.setVisibility(View.VISIBLE);
-                        txt.setText("Resend Code Within "+millisUntilFinished/1000+" Seconds");
+                        txt.setText(" Resend Code Within "+millisUntilFinished/1000+" Seconds");
 
                     }
 
@@ -109,11 +109,44 @@ public class Delivery_Verifyphone extends AppCompatActivity {
                 }.start();
             }
         });
+
+
+        Resend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Resend.setVisibility(View.INVISIBLE);
+                Resendotp(phoneno);
+
+                new CountDownTimer(60000,1000){
+
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                        txt.setVisibility(View.VISIBLE);
+                        txt.setText("Resend Code Within "+millisUntilFinished/1000+" Seconds");
+
+                    }
+
+
+                    @Override
+                    public void onFinish() {
+                        Resend.setVisibility(View.VISIBLE);
+                        txt.setVisibility(View.INVISIBLE);
+
+                    }
+                }.start();
+            }
+        });
+
+
     }
+
     private void Resendotp(String phonenum) {
 
         sendverificationcode(phonenum);
     }
+
 
     private void sendverificationcode(String number) {
 
@@ -141,7 +174,7 @@ public class Delivery_Verifyphone extends AppCompatActivity {
 
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
-            Toast.makeText(Delivery_Verifyphone.this , e.getMessage(),Toast.LENGTH_LONG).show();
+            Toast.makeText(Delivery_sendotp.this , e.getMessage(),Toast.LENGTH_LONG).show();
 
         }
 
@@ -154,30 +187,30 @@ public class Delivery_Verifyphone extends AppCompatActivity {
         }
     };
 
-    private void verifyCode(String code) {
 
+    private void verifyCode(String code) {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId , code);
-        linkCredential(credential);
+        signInWithPhone(credential);
     }
 
-    private void linkCredential(PhoneAuthCredential credential) {
-
-        FAuth.getCurrentUser().linkWithCredential(credential)
-                .addOnCompleteListener(Delivery_Verifyphone.this, new OnCompleteListener<AuthResult>() {
-
+    private void signInWithPhone(PhoneAuthCredential credential) {
+        FAuth.signInWithCredential(credential)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
                         if(task.isSuccessful()){
-
-                            Intent intent = new Intent(Delivery_Verifyphone.this , MainMenu.class);
-                            startActivity(intent);
+                            startActivity(new Intent(Delivery_sendotp.this,DeliveryFoodPanel_BottomNavigation.class));
                             finish();
-                        }else{
-                            ReusableCodeForAll.ShowAlert(Delivery_Verifyphone.this,"Error",task.getException().getMessage());
-                        }
-                    }
-                });
 
+                        }else{
+                            ReusableCodeForAll.ShowAlert(Delivery_sendotp.this,"Error",task.getException().getMessage());
+                        }
+
+                    }
+
+
+                });
     }
+
+
 }

@@ -7,7 +7,7 @@ public class chef {
 
     public chef(String area, String city, String cnfirmPassworde, String emailid, String fname, String house, String lname, String mobile, String password, String postcode, String state) {
 
-       this.Area=area
+       this.Area=area;
         City = city;
         CnfirmPassworde = cnfirmPassworde;
         Emailid = emailid;

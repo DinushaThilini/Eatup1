@@ -87,6 +87,7 @@ public class CustomerHomeFragment extends Fragment implements SwipeRefreshLayout
 
     @Override
     public void onRefresh() {
+
         customermenu();
     }
     private void customermenu() {
